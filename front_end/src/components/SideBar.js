@@ -1,9 +1,14 @@
 import React from "react";
 import data from "../constants/data";
-import { Link } from "react-router-dom";
+import { Link ,useLocation} from "react-router-dom";
 
-const SideBar = () => {
+const SideBar = (props) => {
   const { semestres } = data;
+
+  let location = useLocation();
+  if(location.pathname == '/login' ){
+    return null;
+  }
   return (
     <ul
       className="navbar-nav sidebar sidebar-light accordion"
