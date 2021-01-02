@@ -6,7 +6,7 @@ const Absances = () => {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
             {
-                label: 'absances',
+                label: 'My First dataset',
                 fill: false,
                 lineTension: 0.1,
                 backgroundColor: 'rgba(103,119,224,0.5)',
@@ -31,7 +31,7 @@ const Absances = () => {
 
     return (
 
-        <div className="col">
+        <div className="col-xl-6 col-lg-6">
             <div className="card m-4">
                 <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h2 className="m-0 font-weight-bold text-primary">les absances</h2>

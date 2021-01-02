@@ -18,7 +18,7 @@ const Notes = () => {
         ]
     };
     return (
-        <div className="col">
+        <div className="col-xl-6 col-lg-6">
             <div className="card m-4">
                 <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h2 className="m-0 font-weight-bold text-primary">les notes</h2>

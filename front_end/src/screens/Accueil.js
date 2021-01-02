@@ -10,9 +10,9 @@ const Accueil = () => {
     <div>
 
 
-      <div className=" row">
+      <div className="row">
           <Absances ></Absances>
-          <Notes></Notes>
+          <Notes ></Notes>
       </div>
       <Emploi></Emploi>
     </div>
