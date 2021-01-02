@@ -37,7 +37,7 @@ const SideBar = () => {
             aria-expanded="true"
             aria-controls=""
           >
-            <span>{semestre.name}</span>
+            <span className="nav-link">{semestre.name}</span>
           </Link>
           <div id={semestre.name.replace(' ', '')} className="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div className="bg-white py-2 collapse-inner rounded">
