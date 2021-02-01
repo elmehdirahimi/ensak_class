@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import data from "../constants/data";
+import CoursService from "../services/CoursService";
 
 const Cours = (props) => {
-  //   const semestre = props.match.params.semestre;
-  //   const module = props.match.params.module;
-  const { cours } = data;
-const  cour="dfdfd";
+    const module = props.match.params.module;
+    const [cours, setcours] = useState([]);
+
+    const fetchData = useCallback(() => {
+      CoursService.getCourById(module).then((response) => {
+          setcours(response.data.module.cours);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+      }, [])
+    
+    useEffect(() => {
+        fetchData()
+      }, [fetchData])
+
+    
   return (
     <div className="">
       <div className="card m-4">
@@ -31,7 +46,6 @@ const  cour="dfdfd";
                       <span className="document-name">{cour.title}</span>
                     </div>
                   </a>
-
                 ))}
               </div>
             </div>

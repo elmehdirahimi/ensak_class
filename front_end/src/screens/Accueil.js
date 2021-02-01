@@ -8,8 +8,6 @@ const Accueil = () => {
 
   return (
     <div>
-
-
       <div className="row">
           <Absances ></Absances>
           <Notes ></Notes>

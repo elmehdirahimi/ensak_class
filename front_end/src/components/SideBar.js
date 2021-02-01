@@ -1,14 +1,33 @@
-import React from "react";
+import React, { Component, useCallback, useEffect, useState } from "react";
 import data from "../constants/data";
-import { Link ,useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import SemestreService from "../services/SemestreService";
 
-const SideBar = (props) => {
-  const { semestres } = data;
+
+const SideBar = () => {
+
+  const [semestres, setsemestres] = useState([]);
+ 
+
+  const fetchData = useCallback(() => {
+  SemestreService.getSemestres().then((response) => {
+      setsemestres(response.data.semestres)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
+useEffect(() => {
+    fetchData()
+  }, [fetchData])
 
   let location = useLocation();
-  if(location.pathname == '/login' ){
+  if (location.pathname === "/login" || location.pathname === "/register") {
     return null;
   }
+    
   return (
     <ul
       className="navbar-nav sidebar sidebar-light accordion"
@@ -18,9 +37,6 @@ const SideBar = (props) => {
         className="sidebar-brand d-flex align-items-center justify-content-center"
         href="index.html"
       >
-        {/* <div className="sidebar-brand-icon">
-          <img src="img/logo/logo2.png" />
-        </div> */}
         <div className="sidebar-brand-text mx-3">Ensak Classroom</div>
       </a>
       <hr className="sidebar-divider my-0" />
@@ -38,49 +54,37 @@ const SideBar = (props) => {
             className="nav-link collapsed"
             href="/"
             data-toggle="collapse"
-            data-target={"#"+semestre.name.replace(' ', '')}
+            data-target={"#" + semestre.name.replace(" ", "")}
             aria-expanded="true"
             aria-controls=""
           >
             <span className="nav-link">{semestre.name}</span>
           </Link>
-          <div id={semestre.name.replace(' ', '')} className="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
-          <div className="bg-white py-2 collapse-inner rounded">
-            {semestre.modules.map((module) => (
-              <Link key={module} className="collapse-item" to={"/cours/"+semestre.name.replace(' ','')+"/"+module.replace(' ','')}>
-              {module}
-              </Link>
-            ))}
-          </div>
+          <div
+            id={semestre.name.replace(" ", "")}
+            className="collapse"
+            aria-labelledby="headingBootstrap"
+            data-parent="#accordionSidebar"
+          >
+            <div className="bg-white py-2 collapse-inner rounded">
+              {semestre.modules.map((module) => (
+                <Link
+                  key={module}
+                  className="collapse-item"
+                  to={
+                    "/cours/" +
+                    semestre.name.replace(" ", "") +
+                    "/" +
+                    module.replace(" ", "")
+                  }
+                >
+                  {module}
+                </Link>
+              ))}
+            </div>
           </div>
         </li>
       ))}
-      {/* <li className="nav-item">
-        <a
-          className="nav-link collapsed"
-          href="/"
-          data-toggle="collapse"
-          data-target="#collapseBootstrap"
-          aria-expanded="true"
-          aria-controls="collapseBootstrap"
-        >
-          <span>Semestre 1</span>
-        </a>
-        <div
-          id="collapseBootstrap"
-          className="collapse"
-          aria-labelledby="headingBootstrap"
-          data-parent="#accordionSidebar"
-        >
-          <div className="bg-white py-2 collapse-inner rounded">
-            <a className="collapse-item" href="alerts.html">
-              Alerts
-            </a>
-          </div>
-        </div>
-      </li>
-
-      <div className="version" id="version-ruangadmin" /> */}
     </ul>
   );
 };

@@ -15,6 +15,7 @@ const Notes = () => {
                 pointHoverBorderColor: 'rgba(103,119,224,1)',
                 data: [16, 12, 18, 16, 14, 17]
             },
+
         ]
     };
     return (

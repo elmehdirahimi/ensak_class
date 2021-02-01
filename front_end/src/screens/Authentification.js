@@ -28,7 +28,7 @@ const Authentification = () => {
                       </form>
                       <hr />
                       <div className="text-center">
-                        <a className="font-weight-bold small" href="/regestre">Create an Account!</a>
+                        <a className="font-weight-bold small" href="/register">Create an Account!</a>
                       </div>
                       <div className="text-center">
                       </div>

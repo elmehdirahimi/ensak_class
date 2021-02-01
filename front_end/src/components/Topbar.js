@@ -4,7 +4,7 @@ import { useLocation} from "react-router-dom";
 const Topbar = () => {
 
   let location = useLocation();
-  if(location.pathname == '/login' ){
+  if(location.pathname == '/login' || location.pathname == '/register'){
     return null;
   }
 

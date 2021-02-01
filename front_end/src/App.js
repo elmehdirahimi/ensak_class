@@ -17,7 +17,7 @@ function App() {
             <Topbar></Topbar>
               <Route path="/" exact={true} component={Accueil} />
               <Route path="/login" exact={true} component={Authentification} />
-              <Route path="/regestee" exact={true} component={Registere} />
+              <Route path="/register" exact={true} component={Registere} />
               <Route path="/cours/:semestre?/:module?" component={Cours} />
               {/* <Route path="/all"  component={AllProductScreen} />
           <Route path="/details/:id" component={ProductDetails} />

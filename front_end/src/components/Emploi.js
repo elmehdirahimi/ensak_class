@@ -17,7 +17,7 @@ const {emploi} = data;
             events={emploi}
           />
           <div class="card-footer text-center">
-                  <a class="m-0 small text-primary card-link" target="_blank" href="/">telecharge l'emploi du temps <i
+                  <a class="m-0 small text-primary card-link" target="_blank" href="/">telecharger l'emploi du temps <i
                       class="fas fa-chevron-right"></i></a>
             </div>
         </div>
