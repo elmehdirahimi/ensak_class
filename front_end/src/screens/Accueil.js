@@ -3,16 +3,31 @@ import data from "../constants/data";
 import Emploi from "../components/Emploi";
 import Notes from "../components/Notes";
 import Absances from "../components/Absances";
+import { Redirect, useLocation } from "react-router-dom";
+import AuthService from "../services/auth.service";
+import Cours from "./Cours";
+import EmploiProf from "../components/EmploiProf";
 
-const Accueil = () => {
+const Accueil = (props) => {
 
+  let location = useLocation();
+  if (location.pathname === "/login" || location.pathname === "/register") {
+    return null;
+  }
+  // const currentUser = AuthService.getCurrentUser();
+  // if (!currentUser ) {
+  //   return <Redirect to="/login" />;
+  // }
   return (
     <div>
-      <div className="row">
-          <Absances ></Absances>
-          <Notes ></Notes>
-      </div>
-      <Emploi></Emploi>
+
+<EmploiProf semestre={props.match.params.semestre}></EmploiProf>
+      {/* <div className="row"> */}
+          {/* <Absances ></Absances>
+          <Notes ></Notes> */}
+          <Cours props={props}></Cours>
+      {/* </div> */}
+      
     </div>
 
   );

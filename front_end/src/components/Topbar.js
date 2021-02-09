@@ -1,13 +1,22 @@
 import React from "react";
-import { useLocation} from "react-router-dom";
+import { Redirect, useLocation,useHistory} from "react-router-dom";
+import authService from "../services/auth.service";
 
 const Topbar = () => {
+
+  const currentUser = authService.getCurrentUser();
+  const history = useHistory()
 
   let location = useLocation();
   if(location.pathname == '/login' || location.pathname == '/register'){
     return null;
   }
+const logoutClick = () =>
+{
+  authService.logout();
+  history.goBack();
 
+}
   return (
     <nav className="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
       <button
@@ -38,7 +47,7 @@ const Topbar = () => {
                 <input
                   type="text"
                   className="form-control bg-light border-1 small"
-                  placeholder="What do you want to look for?"
+                  placeholder="entrer le nom de module"
                   aria-label="Search"
                   aria-describedby="basic-addon2"
                   style={{ borderColor: "#3f51b5" }}
@@ -293,24 +302,16 @@ const Topbar = () => {
               <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
               Profile
             </a>
-            <a className="dropdown-item" href="/">
-              <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" />
-              Settings
-            </a>
-            <a className="dropdown-item" href="/">
-              <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400" />
-              Activity Log
-            </a>
             <div className="dropdown-divider" />
-            <a
+            <button
               className="dropdown-item"
-              href="/"
+              onClick={logoutClick}
               data-toggle="modal"
               data-target="#logoutModal"
             >
               <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />
               Logout
-            </a>
+            </button>
           </div>
         </li>
       </ul>

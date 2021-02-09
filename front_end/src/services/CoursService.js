@@ -1,33 +1,34 @@
-import axios from 'axios';
+import axios from "axios";
+import authHeader from "./auth-header";
 
 const COURS_API_BASE_URL = "http://localhost:8888/api/v3/module";
-class CourService {
+class CoursService {
+  getCours() {
+    return axios({
+      method: "GET",
+      url: COURS_API_BASE_URL,
+      headers: authHeader(),
+    });
+  }
 
-    getCours(){
-        return   axios({
-            "method": "GET",
-            "url": COURS_API_BASE_URL,
-          });
-    }
+  createCours(modules) {
+    return axios.put(COURS_API_BASE_URL, modules);
+  }
 
-    createCour(cour){
-        return axios.post(COURS_API_BASE_URL, cour);
-    }
+  getCoursByTitre(titreModule) {
+    return axios({
+      method: "GET",
+      url: COURS_API_BASE_URL + "/" + titreModule,
+    });
+  }
 
-    getCourById(courId){
-        return   axios({
-            "method": "GET",
-            "url": COURS_API_BASE_URL + '/' + courId,
-          });
-    }
+  updateCours(cours, coursId) {
+    return axios.put(COURS_API_BASE_URL + "/" + coursId, cours);
+  }
 
-    updateCour(cour, courId){
-        return axios.put(COURS_API_BASE_URL + '/' + courId, cour);
-    }
-
-    deleteCour(courId){
-        return axios.delete(COURS_API_BASE_URL + '/' + courId);
-    }
+  deleteCours(coursId) {
+    return axios.delete(COURS_API_BASE_URL + "/" + coursId);
+  }
 }
 
-export default new CourService()
+export default new CoursService();

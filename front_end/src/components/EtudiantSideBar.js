@@ -3,30 +3,31 @@ import data from "../constants/data";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import SemestreService from "../services/SemestreService";
+import authService from "../services/auth.service";
+import EtudiantService from "../services/EtudiantService";
 
+const EtudiantSideBar = () => {
+//   const [semestre, setsemestre] = useState([]);
+const [semestre, setsemestre] = useState({})
+  const user = authService.getCurrentUser();
 
-const SideBar = () => {
-
-  const [semestres, setsemestres] = useState([]);
   const fetchData = useCallback(() => {
-  SemestreService.getSemestres().then((response) => {
-      setsemestres(response.data.semestres)
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-  }, [])
+      EtudiantService.getEtudiantByEmail(user.email).then((response) => {
+        setsemestre(response.data.etudiant.semestre)
+        
+      });
+  }, []);
 
-useEffect(() => {
-    fetchData()
-  }, [fetchData])
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   let location = useLocation();
   if (location.pathname === "/login" || location.pathname === "/register") {
     return null;
   }
-    
   return (
+  
     <ul
       className="navbar-nav sidebar sidebar-light accordion"
       id="accordionSidebar"
@@ -44,24 +45,18 @@ useEffect(() => {
           <span>Dashboard</span>
         </a>
       </li>
-
-      <li className="nav-item active">
-        <a className="nav-link" href="/etudiants">
-          <i className="fa fa-users fa-tachometer-alt" />
-          <span>Liste des etudiants</span>
-        </a>
-      </li>
       <li className="nav-item active">
         <a className="nav-link" href="/services">
-          <i className="fab fa-fw fa-wpforms" />
+          <i className="fa fa-users fa-tachometer-alt" />
           <span>Services</span>
         </a>
       </li>
       <hr className="sidebar-divider" />
       <div className="sidebar-heading">Les semestres</div>
-      {semestres.map((semestre) => (
+      {semestre.name &&(
+
         <li className="nav-item" key={semestre.name}>
-          <i
+          <Link
             className="nav-link collapsed"
             href="/"
             data-toggle="collapse"
@@ -70,7 +65,7 @@ useEffect(() => {
             aria-controls=""
           >
             <span className="nav-link">{semestre.name}</span>
-          </i>
+          </Link>
           <div
             id={semestre.name.replace(" ", "")}
             className="collapse"
@@ -83,7 +78,7 @@ useEffect(() => {
                   key={module}
                   className="collapse-item"
                   to={
-                    "/acceuil/" +
+                    "/cours/" +
                     semestre.name.replace(" ", "") +
                     "/" +
                     module.replace(" ", "")
@@ -95,9 +90,11 @@ useEffect(() => {
             </div>
           </div>
         </li>
-      ))}
+      )}
+       
     </ul>
   );
 };
 
-export default SideBar;
+export default EtudiantSideBar;
+
