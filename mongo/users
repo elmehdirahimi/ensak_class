@@ -1,0 +1,4 @@
+_id,username,nom,prenom,roles,email,password,_class
+602065ce1111f84dea7e345e,midox,rahimi,el mehdi,"[{""$ref"":""roles"",""$id"":{""$oid"":""6018445cb7dcee6ed5b3a170""}}]",elmehdirahimi@gmail.com,$2a$10$pRyLFYQKokIe/1VYRZFNz.2hLW0NtdekGWt2rF4aeZdPauNUbY42C,com.bhupeshpadiyar.sbrm.model.User
+602066691111f853d023bb5b,ilkou,ouklich,oussama,"[{""$ref"":""roles"",""$id"":{""$oid"":""6018442cce787819cbe078ae""}}]",ilkou@gmail.com,$2a$10$z.n5BcuCE8WPbYoH9c2s/eDYbnWulMwztBOUC3O8Dqcz6VOJ8sSVm,com.bhupeshpadiyar.sbrm.model.User
+60220f3c83d6a15315e2b7d1,ahssaini,hssain,abdessamad,"[{""$ref"":""roles"",""$id"":{""$oid"":""6018442cce787819cbe078ae""}}]",ahssani@gamil.com,$2a$10$toeMUJa.qscH.Tn1GswFjOsiwsUDD776Apc57SHwa1jTuCt/Q7mFS,com.bhupeshpadiyar.sbrm.model.User

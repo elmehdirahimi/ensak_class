@@ -1,0 +1,7 @@
+_id,emploi_data,_class
+6015db1f890ed70bf933deaa,"[{""title"":""moudule1"",""daysOfWeek"":""1"",""startTime"":""10:45:00"",""endTime"":""12:45:00""},{""title"":""moudule4"",""daysOfWeek"":""4"",""startTime"":""10:45:00"",""endTime"":""12:45:00""},{""title"":""moudule 2"",""daysOfWeek"":""2"",""startTime"":""10:45:00"",""endTime"":""12:45:00""},{""title"":""module5"",""daysOfWeek"":""3"",""startTime"":""8:30:00"",""endTime"":""12:30:00""}]",com.bhupeshpadiyar.sbrm.model.Emplois
+6023041958bc66169399f382,"[{""title"":""moudule1"",""daysOfWeek"":""1"",""startTime"":""10:45:00"",""endTime"":""12:45:00""}]",com.bhupeshpadiyar.sbrm.model.Emplois
+6023042658bc66169399f383,"[{""title"":""moudule1"",""daysOfWeek"":""1"",""startTime"":""10:45:00"",""endTime"":""12:45:00""}]",com.bhupeshpadiyar.sbrm.model.Emplois
+6023043058bc66169399f384,"[{""title"":""moudule1"",""daysOfWeek"":""1"",""startTime"":""10:45:00"",""endTime"":""12:45:00""}]",com.bhupeshpadiyar.sbrm.model.Emplois
+602304ba58bc66169399f385,"[{""title"":""moudule1"",""daysOfWeek"":""1"",""startTime"":""10:45:00"",""endTime"":""12:45:00""}]",com.bhupeshpadiyar.sbrm.model.Emplois
+602304c058bc66169399f386,"[{""title"":""moudule1"",""daysOfWeek"":""1"",""startTime"":""10:45:00"",""endTime"":""12:45:00""}]",com.bhupeshpadiyar.sbrm.model.Emplois
